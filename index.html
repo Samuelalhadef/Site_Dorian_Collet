@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Dorian Collet - Web Designer et Artiste Digital">
+    <title>Portfolio Dorian Collet</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/carousel.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo_rackoon.png">
+</head>
+<body>
+    <!-- Header avec Navigation -->
+    <header>
+        <nav>
+            <ul class="navigation">
+                <li>
+                    <a href="index.html" aria-label="Accueil">
+                        <img class="logor" src="images/logo_rackoon.png" alt="Logo Rackoon - Retour à l'accueil">
+                    </a>
+                </li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projets.html">Mes créations</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section Hero avec Introduction -->
+        <div class="background-container">
+            <section class="hero">
+                <h1>Bienvenue sur mon Site Web</h1>
+            </section>
+
+            <section class="miniapropos">
+                <div>
+                    <img class="matete" src="images/matete.png" alt="Portrait de Dorian Collet" loading="lazy">
+                </div>
+                <div class="quisuisje">
+                    <h2>Qui suis-je ?</h2>
+                    <p>
+                        Bonjour, je m'appelle Dorian et je suis un jeune créatif en pleine étude de Web Design.
+                        Toujours à la recherche de nouveaux projets et de nouvelles choses à apprendre, 
+                        j'aime observer, apprendre, comprendre et créer tout ce qui me semble juste et intéressant.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Carousels de Créations -->
+        <section class="carousel-container">
+            <!-- Premier carrousel -->
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/La dame au fils.png" alt="La Dame au Fils" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Willard.png" alt="Willard" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/logo_zen.png" alt="Logo Zen" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Skill-issue-1.gif" alt="Skill Issue" loading="lazy">
+                    </div>
+                    <!-- Clone pour l'animation infinie -->
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/La dame au fils.png" alt="La Dame au Fils" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Willard.png" alt="Willard" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/logo_zen.png" alt="Logo Zen" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Skill-issue-1.gif" alt="Skill Issue" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Titre central -->
+            <div class="carousel-separator">
+                <h2>Découvrez mes créations</h2>
+            </div>
+
+            <!-- Second carrousel (sens inverse) -->
+            <div class="carousel-wrapper">
+                <div class="carousel-track carousel-track-reverse">
+                    <div class="carousel-slide">
+                        <img src="images/Mes créations/Hell boy - papa.png" alt="Hellboy" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/La mage noir - Normal.png" alt="La Mage Noir" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Zelda_Mask 1.png" alt="Zelda Mask" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/the machine.png" alt="The Machine" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Dragon_Chicha.png" alt="Dragon Chicha" loading="lazy">
+                    </div>
+                    <!-- Clone pour l'animation infinie -->
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Hell boy - papa.png" alt="Hellboy" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/La mage noir - Normal.png" alt="La Mage Noir" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Zelda_Mask 1.png" alt="Zelda Mask" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/the machine.png" alt="The Machine" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/Mes_creations/Dragon_Chicha.png" alt="Dragon Chicha" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dorian Collet. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Optimization du chargement des images
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
+            });
+
+            
+
+            
+            
+        });
+    </script>
+</body>
+</html>

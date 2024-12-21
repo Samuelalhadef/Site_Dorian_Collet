@@ -1,0 +1,84 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  padding: 2rem 0;
+}
+
+/* Wrapper pour le défilement infini */
+.carousel-wrapper {
+  display: flex;
+  width: fit-content;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  animation: scroll 30s linear infinite;
+}
+
+.carousel-track-reverse {
+  animation: scroll-reverse 30s linear infinite;
+}
+
+.carousel-slide {
+  flex: 0 0 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carousel-slide:hover img {
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(calc(-100% - 1rem));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.carousel-slide:hover {
+  z-index: 1;
+}
+
+/* Pause sur hover */
+.carousel-wrapper:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    flex: 0 0 250px;
+    height: 250px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none;
+  }
+}

@@ -1,0 +1,265 @@
+/* Reset et styles globaux */
+:root {
+  --primary-color: #3c85cd;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --bg-dark: #0f0f0f;
+  --bg-darker: #000000;
+  --hover-bg: #b8b8b8;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  cursor: url("/images/Curseur/Curseur.png") 16 16, auto;
+  line-height: 1.5;
+}
+
+/* Typography */
+h1 {
+  color: var(--text-light);
+  font-size: 60px;
+}
+
+p {
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+/* Header et Navigation */
+header {
+  background-color: var(--bg-darker);
+  height: 90px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-right: 400px;
+  flex-wrap: nowrap;
+}
+
+.navigation li {
+  margin-right: 100px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: var(--text-light);
+  white-space: nowrap;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all var(--transition-speed) ease;
+}
+
+.navigation a:hover {
+  background-color: var(--hover-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logor {
+  max-width: 7%;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  background-color: var(--text-dark);
+  color: var(--text-light);
+  text-align: center;
+  padding: 10px;
+}
+
+.slider-section {
+  position: relative;
+  background: var(--bg-dark);
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.slider-container {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.slider-heading {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-out;
+  gap: 2rem;
+}
+
+.slider-track.no-transition {
+  transition: none;
+}
+
+.slide {
+  flex: 0 0 400px;
+  height: 400px;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.slide:hover {
+  transform: scale(1.02);
+}
+
+.slide:hover img {
+  transform: scale(1.1);
+}
+
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  padding: 2rem;
+  color: var(--text-light);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slide:hover .slide-overlay {
+  opacity: 1;
+}
+
+.slider-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.slider-description {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.slider-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-prev {
+  left: 2rem;
+}
+
+.slider-next {
+  right: 2rem;
+}
+
+.slider-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.slider-prev::before {
+  transform: translate(-25%, -50%) rotate(-135deg);
+}
+
+.slider-next::before {
+  transform: translate(-75%, -50%) rotate(45deg);
+}
+
+.slider-progress {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+  .slide {
+    flex: 0 0 350px;
+    height: 350px;
+  }
+
+  .slider-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide {
+    flex: 0 0 300px;
+    height: 300px;
+  }
+
+  .slider-button {
+    display: none;
+  }
+
+  .slider-heading {
+    font-size: 2rem;
+  }
+}
